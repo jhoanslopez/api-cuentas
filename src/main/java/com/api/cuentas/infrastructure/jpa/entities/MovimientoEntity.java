@@ -1,4 +1,4 @@
-package com.api.cuentas.infrastructure.jpa.model;
+package com.api.cuentas.infrastructure.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "movimiento")
-public class Movimiento {
+public class MovimientoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,15 +16,15 @@ public class Movimiento {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cuenta_id")
-    private Cuenta cuenta;
+    private CuentaEntity cuenta;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipo_movimiento_id")
-    private TipoMovimiento tipoMovimiento;
+    private TipoMovimientoEntity tipoMovimiento;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private ClienteEntity cliente;
 
     @Column(name = "saldo_inicial")
     private Long saldoInicial;

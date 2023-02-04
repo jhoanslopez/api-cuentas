@@ -1,4 +1,4 @@
-package com.api.cuentas.infrastructure.jpa.model;
+package com.api.cuentas.infrastructure.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "persona")
-public class Persona {
+public class PersonaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,14 +17,14 @@ public class Persona {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genero_id")
-    private Genero genero;
+    private GeneroEntity genero;
 
     @Column(name = "edad")
     private Short edad;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipo_identificacion_id")
-    private TipoIdentificacion tipoIdentificacion;
+    private TipoIdentificacionEntity tipoIdentificacion;
 
     @Column(name = "direccion")
     private String direccion;

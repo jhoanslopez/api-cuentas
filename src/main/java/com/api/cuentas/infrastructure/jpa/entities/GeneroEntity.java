@@ -1,12 +1,12 @@
-package com.api.cuentas.infrastructure.jpa.model;
+package com.api.cuentas.infrastructure.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tipo_movimiento")
-public class TipoMovimiento {
+@Table(name = "genero")
+public class GeneroEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

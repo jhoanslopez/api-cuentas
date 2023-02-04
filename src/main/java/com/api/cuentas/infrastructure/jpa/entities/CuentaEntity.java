@@ -1,4 +1,4 @@
-package com.api.cuentas.infrastructure.jpa.model;
+package com.api.cuentas.infrastructure.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "cuenta")
-public class Cuenta {
+public class CuentaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Cuenta {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipo_cuenta_id")
-    private TipoCuenta tipoCuenta;
+    private TipoCuentaEntity tipoCuenta;
 
     @Column(name = "saldo")
     private Long saldo;
