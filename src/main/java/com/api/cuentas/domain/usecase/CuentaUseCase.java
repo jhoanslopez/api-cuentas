@@ -25,6 +25,7 @@ public class CuentaUseCase {
     private final ClienteUseCase clienteUseCase;
     private final TipoIdentificacionUseCase tipoIdentificacionUseCase;
 
+    @Transactional
     public List<CuentaCliente> obtenerCuentas() throws LogicaException {
         List<CuentaCliente> response;
         try {
@@ -35,6 +36,7 @@ public class CuentaUseCase {
         return response;
     }
 
+    @Transactional
     public CuentaCliente obtenerCuenta(Integer id) throws LogicaException {
         CuentaCliente response;
         try {
@@ -42,6 +44,18 @@ public class CuentaUseCase {
                     .orElseThrow(() -> new CodigoNoEncontradoException(id.toString()));
 
             response = CuentaConverter.toCuentaCliente(cuenta);
+        } catch (Exception e) {
+            throw new LogicaException(e.getMessage(), e);
+        }
+        return response;
+    }
+
+    @Transactional
+    public Cuenta obtenerCuentaPorNumeroCuenta(Long numeroCuenta) throws LogicaException {
+        Cuenta response;
+        try {
+            response = Optional.ofNullable(cuentaGateway.findByNumeroCuenta(numeroCuenta))
+                    .orElseThrow(() -> new CodigoNoEncontradoException(numeroCuenta.toString()));
         } catch (Exception e) {
             throw new LogicaException(e.getMessage(), e);
         }

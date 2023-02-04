@@ -21,4 +21,8 @@ class CuentaRepositoryAdapter extends AdapterOperations<Cuenta, CuentaEntity, In
         super(repository, mapper, CuentaEntity.class, e -> mapper.map(e, Cuenta.class));
     }
 
+    @Override
+    public Cuenta findByNumeroCuenta(Long numeroCuenta) {
+        return this.toModel(repository.findByNumeroCuenta(numeroCuenta));
+    }
 }
