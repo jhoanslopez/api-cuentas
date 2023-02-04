@@ -1,8 +1,6 @@
 package com.api.cuentas.infrastructure.resources;
 
-import com.api.cuentas.domain.model.usuario.Persona;
 import com.api.cuentas.domain.model.usuario.Usuario;
-import com.api.cuentas.domain.usecase.exception.LogicaException;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

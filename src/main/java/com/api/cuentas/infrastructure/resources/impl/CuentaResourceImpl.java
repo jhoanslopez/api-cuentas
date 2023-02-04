@@ -3,7 +3,6 @@ package com.api.cuentas.infrastructure.resources.impl;
 import com.api.cuentas.domain.model.cuenta.Cuenta;
 import com.api.cuentas.domain.model.cuenta.CuentaActualizar;
 import com.api.cuentas.domain.model.cuenta.CuentaCliente;
-import com.api.cuentas.domain.model.usuario.Usuario;
 import com.api.cuentas.domain.usecase.CuentaUseCase;
 import com.api.cuentas.domain.usecase.exception.LogicaException;
 import com.api.cuentas.infrastructure.resources.CuentaResource;

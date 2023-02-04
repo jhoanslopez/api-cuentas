@@ -1,10 +1,8 @@
 package com.api.cuentas.infrastructure.resources;
 
 import com.api.cuentas.domain.model.cuenta.Cuenta;
-import com.api.cuentas.domain.model.cuenta.Cuenta;
 import com.api.cuentas.domain.model.cuenta.CuentaActualizar;
 import com.api.cuentas.domain.model.cuenta.CuentaCliente;
-import com.api.cuentas.domain.usecase.utils.CuentaConverter;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

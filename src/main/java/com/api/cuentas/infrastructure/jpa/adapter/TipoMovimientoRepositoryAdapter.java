@@ -1,13 +1,9 @@
 package com.api.cuentas.infrastructure.jpa.adapter;
 
-import com.api.cuentas.domain.model.cuenta.TipoCuenta;
-import com.api.cuentas.domain.model.cuenta.gateway.TipoCuentaGateway;
 import com.api.cuentas.domain.model.movimiento.TipoMovimiento;
 import com.api.cuentas.domain.model.movimiento.gateway.TipoMovimientoGateway;
-import com.api.cuentas.infrastructure.jpa.entities.TipoCuentaEntity;
 import com.api.cuentas.infrastructure.jpa.entities.TipoMovimientoEntity;
 import com.api.cuentas.infrastructure.jpa.helper.AdapterOperations;
-import com.api.cuentas.infrastructure.jpa.repository.TipoCuentaRepository;
 import com.api.cuentas.infrastructure.jpa.repository.TipoMovimientoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;

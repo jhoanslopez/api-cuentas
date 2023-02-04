@@ -1,9 +1,6 @@
 package com.api.cuentas.domain.model.cuenta;
 
-import com.api.cuentas.domain.model.usuario.Cliente;
 import lombok.*;
-
-import java.util.List;
 
 @Getter
 @Setter

@@ -1,9 +1,5 @@
 package com.api.cuentas.infrastructure.resources;
 
-import com.api.cuentas.domain.model.cuenta.Cuenta;
-import com.api.cuentas.domain.model.cuenta.CuentaActualizar;
-import com.api.cuentas.domain.model.cuenta.CuentaCliente;
-import com.api.cuentas.domain.model.movimiento.Movimiento;
 import com.api.cuentas.domain.model.movimiento.MovimientoCuenta;
 import com.api.cuentas.domain.model.movimiento.MovimientoGenerar;
 import io.swagger.v3.oas.annotations.Operation;

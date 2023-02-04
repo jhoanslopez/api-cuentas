@@ -2,7 +2,6 @@ package com.api.cuentas.domain.model.usuario.gateway;
 
 
 import com.api.cuentas.domain.model.usuario.Cliente;
-import com.api.cuentas.domain.model.usuario.Genero;
 
 import java.util.List;
 

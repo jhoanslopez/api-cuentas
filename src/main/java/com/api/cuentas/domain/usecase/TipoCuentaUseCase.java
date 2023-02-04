@@ -2,8 +2,6 @@ package com.api.cuentas.domain.usecase;
 
 import com.api.cuentas.domain.model.cuenta.TipoCuenta;
 import com.api.cuentas.domain.model.cuenta.gateway.TipoCuentaGateway;
-import com.api.cuentas.domain.model.usuario.Genero;
-import com.api.cuentas.domain.model.usuario.gateway.GeneroGateway;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

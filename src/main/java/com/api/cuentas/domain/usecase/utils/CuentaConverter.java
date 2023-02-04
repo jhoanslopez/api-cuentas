@@ -4,7 +4,6 @@ import com.api.cuentas.domain.model.cuenta.Cuenta;
 import com.api.cuentas.domain.model.cuenta.CuentaActualizar;
 import com.api.cuentas.domain.model.cuenta.CuentaCliente;
 import com.api.cuentas.domain.model.usuario.Cliente;
-import com.api.cuentas.domain.model.usuario.Usuario;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.springframework.util.CollectionUtils;

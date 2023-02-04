@@ -1,9 +1,7 @@
 package com.api.cuentas.domain.usecase;
 
 import com.api.cuentas.domain.model.usuario.Cliente;
-import com.api.cuentas.domain.model.usuario.TipoIdentificacion;
 import com.api.cuentas.domain.model.usuario.gateway.ClienteGateway;
-import com.api.cuentas.domain.model.usuario.gateway.TipoIdentificacionGateway;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

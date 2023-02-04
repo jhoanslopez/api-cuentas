@@ -1,6 +1,5 @@
 package com.api.cuentas.infrastructure.jpa.entities;
 
-import com.api.cuentas.domain.model.usuario.Cliente;
 import jakarta.persistence.*;
 import lombok.Data;
 

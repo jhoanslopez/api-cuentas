@@ -1,6 +1,5 @@
 package com.api.cuentas.domain.model.usuario;
 
-import com.api.cuentas.infrastructure.jpa.entities.PersonaEntity;
 import lombok.*;
 
 @Getter

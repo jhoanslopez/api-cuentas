@@ -2,8 +2,6 @@ package com.api.cuentas.domain.usecase;
 
 import com.api.cuentas.domain.model.movimiento.TipoMovimiento;
 import com.api.cuentas.domain.model.movimiento.gateway.TipoMovimientoGateway;
-import com.api.cuentas.domain.model.usuario.TipoIdentificacion;
-import com.api.cuentas.domain.model.usuario.gateway.TipoIdentificacionGateway;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

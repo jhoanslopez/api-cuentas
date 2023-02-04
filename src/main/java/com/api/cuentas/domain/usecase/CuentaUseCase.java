@@ -91,7 +91,7 @@ public class CuentaUseCase {
             );
 
             cuentaActualizado = cuentaGateway.save(cuentaActualizado);
-            response = CuentaConverter.toCuentaCliente(cuentaActualizado);;
+            response = CuentaConverter.toCuentaCliente(cuentaActualizado);
 
         } catch (Exception e) {
             throw new LogicaException(e.getMessage(), e);
