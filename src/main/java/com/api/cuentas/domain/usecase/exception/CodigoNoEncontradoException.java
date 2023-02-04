@@ -2,7 +2,7 @@ package com.api.cuentas.domain.usecase.exception;
 
 public class CodigoNoEncontradoException extends LogicaException {
 
-    private static final String MESSAGE = "Código no encontrado: %s";
+    private static final String MESSAGE = "Código o Identificador no encontrado: %s";
 
     public CodigoNoEncontradoException(String code) {
         super(String.format(MESSAGE, code));

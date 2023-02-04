@@ -61,4 +61,8 @@ public abstract class AdapterOperations<M, E, I, R extends JpaRepository<E, I>> 
         return toList(repository.findAll());
     }
 
+    public void deleteById(I id) {
+        repository.deleteById(id);
+    }
+
 }

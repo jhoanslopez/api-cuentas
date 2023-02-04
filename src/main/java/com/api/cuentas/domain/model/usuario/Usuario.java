@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
+    private Integer idCliente;
     private String nombres;
     private String codigoGenero;
     private String genero;

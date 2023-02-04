@@ -25,4 +25,8 @@ public class ClienteUseCase {
         return clienteGateway.save(cliente);
     }
 
+    public void eliminarCliente(Integer id) {
+        clienteGateway.deleteById(id);
+    }
+
 }

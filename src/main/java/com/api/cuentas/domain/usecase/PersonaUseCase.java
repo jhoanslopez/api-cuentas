@@ -4,7 +4,6 @@ import com.api.cuentas.domain.model.usuario.*;
 import com.api.cuentas.domain.model.usuario.gateway.PersonaGateway;
 import com.api.cuentas.domain.usecase.exception.CodigoNoEncontradoException;
 import com.api.cuentas.domain.usecase.exception.LogicaException;
-import com.api.cuentas.domain.usecase.exception.ValidacionException;
 import com.api.cuentas.domain.usecase.utils.UsuarioConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,27 +19,40 @@ public class PersonaUseCase {
     private final GeneroUseCase generoUseCase;
     private final TipoIdentificacionUseCase tipoIdentificacionUseCase;
 
-    public List<Persona> obtenerUsuarios() {
-        return personaGateway.findAll();
+    public List<Usuario> obtenerUsuarios() throws LogicaException {
+        List<Usuario> response;
+        try {
+            response = UsuarioConverter.toUsuario(clienteUseCase.obtenerClientes());
+        } catch (Exception e) {
+            throw new LogicaException(e.getMessage(), e);
+        }
+        return response;
     }
 
-    public Persona obtenerUsuario(Integer id) {
-        return personaGateway.findById(id);
+    public Usuario obtenerUsuario(Integer id) throws LogicaException {
+        Usuario response;
+        try {
+            Cliente cliente = Optional.ofNullable(clienteUseCase.obtenerCliente(id))
+                    .orElseThrow(() -> new CodigoNoEncontradoException(id.toString()));
+            response = UsuarioConverter.toUsuario(cliente);
+        } catch (Exception e) {
+            throw new LogicaException(e.getMessage(), e);
+        }
+        return response;
     }
 
     @Transactional
     public Usuario crearUsuario(Usuario usuario) throws LogicaException {
-        Usuario response = null;
+        Usuario response ;
         try {
 
             Persona persona = buildPersona(usuario);
             persona = personaGateway.save(persona);
 
             Cliente cliente = buildCliente(usuario, persona);
-            cliente.setPersona(null);
             cliente = clienteUseCase.crearCliente(cliente);
 
-            usuario = UsuarioConverter.toUsuario(persona, cliente);
+            response = UsuarioConverter.toUsuario(persona, cliente);
 
         } catch (Exception e) {
             throw new LogicaException(e.getMessage(), e);
@@ -49,13 +61,45 @@ public class PersonaUseCase {
     }
 
     @Transactional
-    public Usuario actualizarUsuario(Usuario usuario) {
-        return null;
+    public Usuario actualizarUsuario(Usuario usuario) throws LogicaException {
+        Usuario response;
+        try {
+
+            Cliente clienteOriginal = Optional.ofNullable(clienteUseCase.obtenerCliente(usuario.getIdCliente()))
+                    .orElseThrow(() -> new CodigoNoEncontradoException(usuario.getIdCliente().toString()));
+
+            Cliente clienteActualizado = UsuarioConverter.mapper(clienteOriginal, usuario);
+
+            clienteActualizado.getPersona().setGenero(
+                    obtenerGenero(usuario.getCodigoGenero())
+            );
+            clienteActualizado.getPersona().setTipoIdentificacion(
+                    obtenerTipoIdentificacion(usuario.getCodigoTipoIdentificacion())
+            );
+
+            personaGateway.save(clienteActualizado.getPersona());
+            clienteActualizado = clienteUseCase.crearCliente(clienteActualizado);
+
+            response = UsuarioConverter.toUsuario(clienteActualizado);
+        } catch (Exception e) {
+            throw new LogicaException(e.getMessage(), e);
+        }
+        return response;
     }
 
     @Transactional
-    public Persona eliminarUsuario(Integer id) {
-        return null;
+    public Boolean eliminarUsuario(Integer id) throws LogicaException {
+        Boolean response = true;
+        try {
+
+            Cliente clienteOriginal = Optional.ofNullable(clienteUseCase.obtenerCliente(id))
+                    .orElseThrow(() -> new CodigoNoEncontradoException(id.toString()));
+
+            clienteUseCase.eliminarCliente(clienteOriginal.getId());
+        } catch (Exception e) {
+            throw new LogicaException(e.getMessage(), e);
+        }
+        return response;
     }
 
     private Genero obtenerGenero(String codigo) throws LogicaException {
@@ -63,8 +107,9 @@ public class PersonaUseCase {
                 .orElseThrow(() -> new CodigoNoEncontradoException(codigo));
     }
 
-    private TipoIdentificacion obtenerTipoIdentificacion(String codigo) {
-        return tipoIdentificacionUseCase.obtenerTipoIdentificacion(codigo);
+    private TipoIdentificacion obtenerTipoIdentificacion(String codigo) throws CodigoNoEncontradoException {
+        return Optional.ofNullable(tipoIdentificacionUseCase.obtenerTipoIdentificacion(codigo))
+                .orElseThrow(() -> new CodigoNoEncontradoException(codigo));
     }
 
     private Persona buildPersona(Usuario usuario) throws LogicaException {

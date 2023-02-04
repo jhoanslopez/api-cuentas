@@ -14,4 +14,6 @@ public interface ClienteGateway {
 
     Cliente save(Cliente cliente);
 
+    void deleteById(Integer id);
+
 }

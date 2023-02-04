@@ -13,4 +13,6 @@ public interface PersonaGateway {
 
     Persona save(Persona persona);
 
+    void deleteById(Integer id);
+
 }
