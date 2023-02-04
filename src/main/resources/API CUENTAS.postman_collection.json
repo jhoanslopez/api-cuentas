@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "55286fa6-5d89-4ea4-85b9-dc9323998eb2",
+		"name": "API CUENTAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14209667"
+	},
+	"item": [
+		{
+			"name": "Obtener Clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/clientes",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Cliente By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cliente/1",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombres\": \"Jhoan2\",\r\n  \"codigoGenero\": \"M\",\r\n  \"codigoTipoIdentificacion\": \"CC\",\r\n  \"edad\": 24,\r\n  \"direccion\": \"sdasd\",\r\n  \"telefono\": \"sd2121\",\r\n  \"contrasena\": \"string\",\r\n  \"estado\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cliente",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idCliente\": 5,\r\n  \"nombres\": \"Jhoan20000\",\r\n  \"codigoGenero\": \"F\",\r\n  \"codigoTipoIdentificacion\": \"CC\",\r\n  \"edad\": 37,\r\n  \"direccion\": \"11\",\r\n  \"telefono\": \"22\",\r\n  \"contrasena\": \"33\",\r\n  \"estado\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cliente",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Cliente By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cliente/5",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cliente",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Cuentas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cuentas",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Cuenta By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cuenta/1",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cuenta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idCliente\": 4,\r\n  \"numeroCuenta\": 310,\r\n  \"tipoCuenta\": {\r\n    \"codigo\": \"aho\"\r\n  },\r\n  \"saldo\": 99000,\r\n  \"estado\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cuenta",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cuenta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Cuenta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 3,\r\n  \"numeroCuenta\": 788,\r\n  \"codigoTipoCuenta\": \"COR\",\r\n  \"estado\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cuenta",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cuenta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Cuenta By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/cuenta/3",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"cuenta",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Movimientos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/movimientos",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"movimientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Movimiento By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/movimiento/1",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"movimiento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generar Movimiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idCliente\": 4,\r\n  \"numeroCuenta\": 310,\r\n  \"valorMovimiento\": 100000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}{{server}}{{port}}/api/movimiento",
+					"host": [
+						"{{protocol}}{{server}}{{port}}"
+					],
+					"path": [
+						"api",
+						"movimiento"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
