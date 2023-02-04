@@ -1,7 +1,10 @@
 package com.api.cuentas.infrastructure.jpa.entities;
 
+import com.api.cuentas.domain.model.usuario.Cliente;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -24,5 +27,11 @@ public class CuentaEntity {
 
     @Column(name = "estado")
     private Boolean estado;
+
+    @ManyToMany
+    @JoinTable(name = "cliente_cuenta",
+            joinColumns = @JoinColumn(name = "cuenta_id"),
+            inverseJoinColumns = @JoinColumn(name = "cliente_id"))
+    private List<ClienteEntity> clientes;
 
 }

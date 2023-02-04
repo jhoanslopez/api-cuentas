@@ -22,8 +22,7 @@ public class GeneroUseCase {
     }
 
     public Genero obtenerGenero(String codigo) {
-        Genero genero = generoGateway.findByCode(codigo);
-        return genero;
+        return generoGateway.findByCode(codigo);
     }
 
 }
